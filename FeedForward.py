@@ -1,14 +1,13 @@
-from numpy import array, dot, tanh, exp, random
+from numpy import dot, tanh, random
 
 
 class Feedforward:
-    def __init(self):
 
+    def __init__(self):
         # generate same weight in every run
         random.seed(1)
-
         # 3x1 matrix weight
-        self.weight_matrix = 2 * random.random((3, 1)) - 1
+        self.weight_matrix = 2 * random.rand(4, 1) - 1
 
     # tanh as activation function
     def tanh(self, x):
@@ -30,7 +29,7 @@ class Feedforward:
             # calculate error in output
             error = train_outputs - output
 
-            adjustment = dot(train_inputs.T - error *
+            adjustment = dot(train_inputs.T , error *
                              self.tanh_derivitave(output))
 
             # adjust the weight matrix
